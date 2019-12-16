@@ -6,12 +6,21 @@
   "types": "./build/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "tslint --project ."
+    "watch-build": "(tsc -w &) && (tsc -w -p tsconfig-test.json)",
+    "test": "tsc -p tsconfig-test.json && mocha --require source-map-support/register --recursive build-test/",
+    "lint": "tslint --project .",
+    "all": "npm run build && npm run test && npm run lint"
   },
   "author": "BuckeyeDude",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/source-map-support": "^0.5.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "source-map-support": "^0.5.11",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   }

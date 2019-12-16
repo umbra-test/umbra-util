@@ -17,7 +17,6 @@
     },
     "include": [
         "src/**/*",
-        "tst/**/*"
     ],
     "exclude": [
         "node_modules"
