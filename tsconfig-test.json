@@ -13,7 +13,7 @@
         "sourceMap": true,
         "target": "es6",
         "outDir": "./lib/tests/",
-        "declaration": true
+        "declaration": false
     },
     "include": [
         "tst/**/*"

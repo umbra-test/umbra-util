@@ -8,29 +8,28 @@
   "scripts": {
     "build": "tsc",
     "watch-build": "(tsc -w &) && (tsc -w -p tsconfig-test.json)",
-    "test": "tsc -p tsconfig-test.json && nyc mocha --reporter dot --require ts-node/register --require source-map-support/register --recursive tst/**/*.ts",
+    "test": "tsc -p tsconfig-test.json && nyc mocha --require source-map-support/register --recursive lib/tests/tst/**/*.js",
     "lint": "tslint --project .",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "all": "npm run build && npm run test && npm run lint && npm run coveralls"
   },
   "nyc": {
     "lines": 100,
-    "statements": 99,
-    "functions": 96,
-    "branches": 96,
-    "cache": false,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "cache": true,
     "check-coverage": true,
     "extension": [
-      ".ts",
-      ".tsx"
-    ],
-    "include": [
-      "src"
+      ".ts"
     ],
     "exclude": [
-      "**/*.d.ts"
+      "**/*.d.ts",
+      "tst",
+      "coverage"
     ],
     "reporter": [
+      "text",
       "lcov",
       "html"
     ]
@@ -51,7 +50,6 @@
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
     "source-map-support": "^0.5.16",
-    "ts-node": "^8.6.2",
     "tslint": "^6.1.0",
     "typescript": "^3.8.3"
   },
