@@ -1,9 +1,9 @@
 {
-  "name": "umbra-util",
+  "name": "@umbra-test/umbra-util",
   "version": "0.0.1",
-  "description": "",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "description": "A collection of common utils used by the Umbra Test packages.",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
@@ -54,5 +54,14 @@
     "ts-node": "^8.6.2",
     "tslint": "^6.1.0",
     "typescript": "^3.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umbra-test/umbra-util.git"
+  },
+  "author": "umbra-test authors",
+  "bugs": {
+    "url": "https://github.com/umbra-test/umbra-util/issues"
+  },
+  "homepage": "https://github.com/umbra-test/umbra-util#readme"
 }
