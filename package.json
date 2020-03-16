@@ -1,27 +1,58 @@
 {
   "name": "umbra-util",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "watch-build": "(tsc -w &) && (tsc -w -p tsconfig-test.json)",
-    "test": "tsc -p tsconfig-test.json && mocha --require source-map-support/register --recursive build-test/",
+    "test": "tsc -p tsconfig-test.json && nyc mocha --reporter dot --require ts-node/register --require source-map-support/register --recursive tst/**/*.ts",
     "lint": "tslint --project .",
-    "all": "npm run build && npm run test && npm run lint"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "all": "npm run build && npm run test && npm run lint && npm run coveralls"
   },
-  "author": "BuckeyeDude",
-  "license": "MIT",
+  "nyc": {
+    "lines": 100,
+    "statements": 99,
+    "functions": 96,
+    "branches": 96,
+    "cache": false,
+    "check-coverage": true,
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "lcov",
+      "html"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.6",
-    "@types/source-map-support": "^0.5.0",
+    "@types/chai": "^4.2.11",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/mocha": "^7.0.2",
+    "@types/sinon": "^7.5.2",
+    "@types/sinon-chai": "^3.2.3",
+    "@types/source-map-support": "^0.5.1",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "source-map-support": "^0.5.11",
-    "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.9",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
+    "sinon": "^9.0.1",
+    "sinon-chai": "^3.5.0",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
   }
 }

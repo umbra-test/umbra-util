@@ -1,10 +1,9 @@
-/*
 import * as chai from "chai";
 import * as chaiAsPromised from "chai-as-promised";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import {SimpleEventEmitter, union, without} from "../../src/EventEmitter/SimpleEventEmitter";
+import {SimpleEventEmitter, union, without} from "../src/SimpleEventEmitter";
 
 chai.use(chaiAsPromised);
 chai.use(sinonChai);
@@ -295,4 +294,3 @@ describe("SimpleEventEmitter Utilities", () => {
         });
     });
 });
- */
