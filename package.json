@@ -2,8 +2,8 @@
   "name": "@umbra-test/umbra-util",
   "version": "0.0.1",
   "description": "A collection of common utils used by the Umbra Test packages.",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
