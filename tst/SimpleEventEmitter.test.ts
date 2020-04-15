@@ -4,7 +4,8 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 import "mocha"
 
-import { SimpleEventEmitter, union, without } from "../src/SimpleEventEmitter";
+import {union, without} from "../src/ArrayUtils";
+import {SimpleEventEmitter} from "../src/SimpleEventEmitter";
 
 chai.use(chaiAsPromised);
 chai.use(sinonChai);
@@ -268,7 +269,7 @@ describe("SimpleEventEmitter Utilities", () => {
                 a: "a",
                 b: "b",
                 c: "c"
-            }])
+            }]);
         });
     });
 
