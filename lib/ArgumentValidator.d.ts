@@ -10,6 +10,7 @@ declare function matcher<T>(func: (arg: T) => boolean): T;
 interface ArgumentValidator<T> {
     precedence?: number;
     matches(arg: T): boolean;
-    description?(): string;
+    description(): string;
+    equals(otherValidator: ArgumentValidator<any>): boolean;
 }
 export { any, eq, gt, gte, lt, lte, startsWith, regexMatches, matcher, ArgumentValidator, };
