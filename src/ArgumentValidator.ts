@@ -1,4 +1,5 @@
 import { deepEqual } from "./DeepEqual";
+import { printObject } from "./Stringify";
 
 function any<T>(): T {
     const validator: ArgumentValidator<T> = {
@@ -14,7 +15,7 @@ function any<T>(): T {
 function gt<T extends number>(value: T): T {
     const validator: ArgumentValidator<T> = {
         matches: ((realValue: T) => realValue > value),
-        description: () => `gt(${JSON.stringify(value)})`,
+        description: () => `gt(${printObject(value)})`,
         equals: (other) => other.description() === validator.description()
     };
     return validator as any as T;
@@ -23,7 +24,7 @@ function gt<T extends number>(value: T): T {
 function lt<T extends number>(value: T): T {
     const validator: ArgumentValidator<T> = {
         matches: ((realValue: T) => realValue < value),
-        description: () => `lt(${JSON.stringify(value)})`,
+        description: () => `lt(${printObject(value)})`,
         equals: (other) => other.description() === validator.description()
     };
     return validator as any as T;
@@ -32,7 +33,7 @@ function lt<T extends number>(value: T): T {
 function gte<T extends number>(value: T): T {
     const validator: ArgumentValidator<T> = {
         matches: ((realValue: T) => realValue >= value),
-        description: () => `gte(${JSON.stringify(value)})`,
+        description: () => `gte(${printObject(value)})`,
         equals: (other) => other.description() === validator.description()
     };
     return validator as any as T;
@@ -41,7 +42,7 @@ function gte<T extends number>(value: T): T {
 function lte<T extends number>(value: T): T {
     const validator: ArgumentValidator<T> = {
         matches: ((realValue: T) => realValue <= value),
-        description: () => `lte(${JSON.stringify(value)})`,
+        description: () => `lte(${printObject(value)})`,
         equals: (other) => other.description() === validator.description()
     };
     return validator as any as T;
@@ -51,7 +52,7 @@ function eq<T>(value: T): T {
     const validator: ArgumentValidator<T> = {
         precedence: 1,
         matches: ((realValue: T) => deepEqual(value, realValue)),
-        description: () => JSON.stringify(value),
+        description: () => printObject(value),
         equals: (other) => other.description() === validator.description()
     };
     return validator as any as T;
